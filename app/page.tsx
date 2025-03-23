@@ -1,11 +1,13 @@
 import Image from "next/image";
 import "./globals.css";
+import Categories from "./components/Categories.tsx";
 
 export default function Home() {
 	return (
-		<div className="">
-			<h1>Hello Wrold!</h1>
-			<p className="text-airbnb">Text-color text</p>
-		</div>
+		<main className="max-w-[1500px] mx-auto px-6">
+			<Categories />
+
+			<div className="mt-4 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6"></div>
+		</main>
 	);
 }
