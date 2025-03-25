@@ -1,6 +1,7 @@
+import ReservationSidebar from "@/components/properties/ReservationSidebar";
 import Image from "next/image";
 import Link from "next/link";
-import ReservationSidebar from "@/app/components/properties/ReservationSidebar";
+
 const PropertyDetailPage = () => {
 	return (
 		<main className="max-w-[1500px] mx-auto px-6">
@@ -22,10 +23,7 @@ const PropertyDetailPage = () => {
 
 					<hr />
 
-					<Link
-						href="#"
-						className="py-6 flex items-center space-x-4"
-					>
+					<Link href="#" className="py-6 flex items-center space-x-4">
 						<Image
 							src="/user_1.jpg"
 							width={50}
