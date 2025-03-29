@@ -1,4 +1,8 @@
+"use client";
+import { useState } from "react";
+
 const UserNave = () => {
+	const [isOpen, setIsOpen] = useState(true);
 	return (
 		<div className="p-2 relative inline-block border rounded-full">
 			<button className="flex items-center">
@@ -30,6 +34,12 @@ const UserNave = () => {
 					/>
 				</svg>
 			</button>
+			{isOpen && (
+				<div className="w-[220px] absolute top-14 right-0 bg-white border border-gray-200 rounded-lg shadow-md flex flex-col cursor-pointer">
+					<p>ajskldfj</p>
+					<p>ajskldfj</p>
+				</div>
+			)}
 		</div>
 	);
 };
