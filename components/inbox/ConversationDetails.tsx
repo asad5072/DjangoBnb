@@ -24,8 +24,8 @@ const ConversationDetails = () => {
 				/>
 				<CustomButton
 					label="Send"
-					onClick={() => console.log("Clicked")}
-					className="w-[100px]"
+					// onClick={() => console.log("Clicked")}
+					CustomClassName="w-[100px]"
 				/>
 			</div>
 		</div>
