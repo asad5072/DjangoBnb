@@ -55,7 +55,7 @@ const Modal: React.FC<ModalProps> = ({ label, content, isOpen, close }) => {
 							<h2 className="text-lg font-bold">{label}</h2>
 						</header>
 						<section className="p-6">
-							<p>{content}</p>
+							<div>{content}</div>
 						</section>
 					</div>
 				</div>
