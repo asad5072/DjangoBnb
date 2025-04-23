@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import useSignupModal from "@/hooks/useSignupModal";
 import CustomButton from "../forms/CustomButton";
 import apiService from "@/app/services/apiService";
+// import { handleLogin } from "@/app/lib/action";
 
 const SignupModal = () => {
 	const signupModal = useSignupModal();
@@ -27,6 +28,7 @@ const SignupModal = () => {
 		);
 		if (response.access) {
 			//handle login
+			// handleLogin(response.user.pk, response.access, response.refresh);
 
 			signupModal.close();
 			router.push("/");
