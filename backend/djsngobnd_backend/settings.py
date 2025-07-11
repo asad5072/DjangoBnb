@@ -36,11 +36,12 @@ SIMPLE_JWT = {
 }
 
 
+AUTH_USER_MODEL = 'useraccount.User'
 
-# Use the new recommended settings:
-ACCOUNT_LOGIN_METHODS = {'email'}
-ACCOUNT_SIGNUP_FIELDS = ['email*', 'password1*', 'password2*']
-ACCOUNT_EMAIL_VERIFICATION = "optional"
+ACCOUNT_USER_MODEL_USERNAME_FIELD = None
+ACCOUNT_USERNAME_REQUIRED = False
+ACCOUNT_AUTHENTICATION_METHOD = "email"
+ACCOUNT_EMAIL_REQUIRED = True
 
 
 
@@ -74,6 +75,7 @@ INSTALLED_APPS = [
     
     'allauth',
     'allauth.account',
+    'allauth.socialaccount',
     
     'dj_rest_auth',
     'dj_rest_auth.registration',

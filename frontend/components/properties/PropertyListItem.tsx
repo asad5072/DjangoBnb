@@ -14,13 +14,19 @@ const PropertyListItem: React.FC<PropertyProps> = ({ property }) => {
 		<div className="cursor-pointer">
 			<div className="relative overflow-hidden aspect-square rounded-xl">
 				{imageUrl ? (
-					<Image
-						fill
-						src={imageUrl}
-						sizes="(max-width: 768px) 768px, (max-width: 1200px): 768px, 768px"
-						className="hover:scale-110 object-cover transition h-full w-full"
-						alt="Property image"
-						priority
+					// <Image
+					// 	fill
+					// 	src={imageUrl}
+					// 	sizes="(max-width: 768px) 768px, (max-width: 1200px): 768px, 768px"
+					// 	className="hover:scale-110 object-cover transition h-full w-full"
+					// 	alt="Property image"
+					// 	priority
+					// />
+					<img
+						src={property.image_url}
+						alt={property.title}
+						width={400}
+						height={300}
 					/>
 				) : (
 					<div className="h-full w-full bg-gray-200">No image available</div> // You can customize this placeholder
