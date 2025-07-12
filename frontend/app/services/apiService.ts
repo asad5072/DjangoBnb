@@ -1,12 +1,11 @@
 const apiService = {
 	get: async function (url: string): Promise<any> {
-		// console.log("get", url);
 		return new Promise((resolve, reject) => {
 			fetch(`${process.env.NEXT_PUBLIC_API_HOST}${url}`, {
 				method: "GET",
 				headers: {
-					Accept: "Application/json",
-					"Content-Type": "Application/json",
+					Accept: "application/json", // fixed case
+					"Content-Type": "application/json", // fixed case
 				},
 			})
 				.then((response) => response.json())
@@ -20,15 +19,13 @@ const apiService = {
 		});
 	},
 	post: async function (url: string, data: any): Promise<any> {
-		// console.log("post", url, data);
-
 		return new Promise((resolve, reject) => {
 			fetch(`${process.env.NEXT_PUBLIC_API_HOST}${url}`, {
 				method: "POST",
-				body: data,
+				body: JSON.stringify(data), // always stringify JS object
 				headers: {
-					Accept: "application/json",
-					"Content-Type": "Application/json",
+					Accept: "application/json", // fixed case
+					"Content-Type": "application/json", // fixed case
 				},
 			})
 				.then((response) => response.json())

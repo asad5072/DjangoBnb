@@ -15,34 +15,32 @@ const SignupModal = () => {
 	const [password2, setPassword2] = useState("");
 	const [errors, setErrors] = useState<string[]>([]);
 
-	const submitSignup = async () => {
+	const submitSignup = async (e?: React.FormEvent) => {
+		if (e) e.preventDefault();
 		const formData = {
 			email: email,
 			password1: password1,
 			password2: password2,
 		};
-		console.log(formData, "form data");
 		const response = await apiService.post(
 			"/api/auth/register/",
-			JSON.stringify(formData)
+			formData // ✅ Pass the plain JS object
 		);
 		if (response.access) {
-			//handle login
-			// handleLogin(response.user.pk, response.access, response.refresh);
-
 			signupModal.close();
 			router.push("/");
 		} else {
-			const tempError: string[] = Object.values(response).map((error: any) => {
-				return error;
-			});
+			const tempError: string[] = Object.values(response).flat();
 			setErrors(tempError);
 		}
 	};
 
 	const content = (
 		<div>
-			<form action={submitSignup} className="space-y-4">
+			<form
+				onSubmit={submitSignup}
+				className="space-y-4"
+			>
 				<input
 					onChange={(e) => setEmail(e.target.value)}
 					type="email"
@@ -72,7 +70,7 @@ const SignupModal = () => {
 
 				<CustomButton
 					label="Sign Up"
-					onClick={submitSignup}
+					type="submit"
 					CustomClassName="w-full"
 				/>
 			</form>
